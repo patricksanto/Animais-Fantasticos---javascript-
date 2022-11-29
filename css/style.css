@@ -240,3 +240,28 @@ body {
     transform: translate3d(0, 0, 0);
   }
 }
+@keyframes faq-show {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 120px;
+  }
+}
+.js .faq-lista dd {
+  display: none;
+}
+.faq-lista dd.ativo {
+  display: block !important;
+  animation: faq-show 0.7s forwards;
+}
+.js .js-accordion dt::after {
+  content: "⤵";
+  margin-left: 10px;
+}
+.js .js-accordion dt.ativo::after {
+  content: "⤴";
+  margin-left: 10px;
+}
