@@ -63,3 +63,23 @@ function smoothScroll() {
   });
 }
 smoothScroll();
+
+function initiAnimaScroll() {
+  const section = document.querySelectorAll(".js-scroll");
+  if (section) {
+    let metadeDaTela = window.innerHeight * 0.7;
+    section[0].classList.add("ativo");
+
+    function animaScroll() {
+      section.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const isSectionVisible = sectionTop - metadeDaTela < 0;
+        if (isSectionVisible) {
+          section.classList.add("ativo");
+        }
+      });
+    }
+    window.addEventListener("scroll", animaScroll);
+  }
+}
+initiAnimaScroll();
